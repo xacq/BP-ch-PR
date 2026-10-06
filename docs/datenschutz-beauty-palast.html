@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Datenschutzerklärung – Beauty Palast | Andrea Teles</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --cream: #F5F0E8;
+  --cream-dark: #EDE6D6;
+  --cream-deep: #E4DBCA;
+  --sand: #C9B89A;
+  --brown: #5C4A35;
+  --dark: #1C1814;
+  --text: #2A2118;
+  --text-mid: #6B5B4A;
+  --text-light: #9B8B7A;
+  --white: #FDFAF5;
+  --accent: #8B6B4A;
+}
+html { scroll-behavior: smooth; }
+body { font-family: 'Inter', sans-serif; background: var(--cream); color: var(--text); line-height: 1.7; }
+
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 1.2rem 3rem;
+  background: rgba(245,240,232,0.95);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(201,184,154,0.3);
+}
+.nav-logo { font-family: 'Playfair Display', serif; font-size: 1.2rem; color: var(--text); text-decoration: none; }
+.nav-back { font-size: 0.8rem; color: var(--text-light); text-decoration: none; letter-spacing: 0.06em; transition: color 0.2s; }
+.nav-back:hover { color: var(--text); }
+
+main { max-width: 780px; margin: 0 auto; padding: 8rem 2.5rem 6rem; }
+
+.eyebrow { font-size: 0.72rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--text-light); display: block; margin-bottom: 1rem; }
+h1 { font-family: 'Playfair Display', serif; font-size: clamp(2rem, 4vw, 3rem); font-weight: 400; line-height: 1.2; margin-bottom: 0.5rem; }
+h1 em { font-style: italic; color: var(--accent); }
+.meta { font-size: 0.82rem; color: var(--text-light); margin-bottom: 3.5rem; line-height: 1.6; }
+.meta strong { color: var(--text-mid); }
+
+.sections { display: flex; flex-direction: column; gap: 2.75rem; }
+
+.section h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.2rem;
+  font-weight: 400;
+  color: var(--text);
+  margin-bottom: 1rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--cream-deep);
+}
+.section p { font-size: 0.9rem; color: var(--text-mid); line-height: 1.85; margin-bottom: 0.75rem; }
+.section p:last-child { margin-bottom: 0; }
+.section ul { font-size: 0.9rem; color: var(--text-mid); line-height: 2; padding-left: 1.5rem; margin-top: 0.5rem; }
+.section ul li { margin-bottom: 0.15rem; }
+.section ul li strong { color: var(--text); }
+.section ul li em { font-size: 0.8rem; color: var(--text-light); font-style: normal; }
+
+.data-box { background: var(--white); border-radius: 8px; padding: 1.25rem 1.5rem; margin-top: 1rem; }
+.data-box-title { font-size: 0.8rem; font-weight: 500; color: var(--text); margin-bottom: 0.4rem; }
+.data-box p { font-size: 0.85rem; color: var(--text-mid); line-height: 1.7; margin: 0; }
+
+.info-box {
+  background: var(--cream-dark);
+  border-radius: 10px;
+  padding: 1.75rem 2rem;
+  border-left: 3px solid var(--sand);
+  margin-top: 1rem;
+}
+.info-box p { font-size: 0.85rem; color: var(--text-mid); line-height: 1.8; margin: 0; }
+.info-box p strong { color: var(--text); }
+
+.contact-block {
+  background: var(--dark);
+  border-radius: 12px;
+  padding: 2rem 2.5rem;
+  margin-top: 2.75rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+.contact-block p { font-size: 0.88rem; color: rgba(253,250,245,0.7); line-height: 1.7; }
+.contact-block p strong { color: var(--white); display: block; margin-bottom: 0.25rem; font-size: 1rem; }
+.contact-block a { color: #C9B89A; text-decoration: none; }
+.btn { display: inline-block; padding: 0.8rem 1.75rem; background: var(--white); color: var(--dark); font-size: 0.8rem; border-radius: 100px; text-decoration: none; letter-spacing: 0.04em; white-space: nowrap; transition: background 0.2s; }
+.btn:hover { background: var(--cream); }
+
+footer {
+  background: var(--dark);
+  padding: 2.5rem 3rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 5rem;
+}
+.footer-logo { font-family: 'Playfair Display', serif; color: var(--white); font-size: 1rem; text-decoration: none; }
+.footer-info { font-size: 0.75rem; color: rgba(253,250,245,0.35); }
+.footer-contact a { font-size: 0.8rem; color: #C9B89A; text-decoration: none; }
+
+@media (max-width: 600px) {
+  nav { padding: 1rem 1.5rem; }
+  main { padding: 7rem 1.25rem 4rem; }
+  .contact-block { flex-direction: column; align-items: flex-start; }
+  footer { padding: 2rem 1.25rem; flex-direction: column; align-items: flex-start; gap: 0.5rem; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="#">Beauty Palast</a>
+  <a class="nav-back" href="beauty-palast.html">← Zurück zur Website</a>
+</nav>
+
+<main>
+  <span class="eyebrow">Rechtliches · Beauty Palast</span>
+  <h1>Datenschutz-<em>erklärung</em></h1>
+  <div class="meta">
+    <strong>Gemäss Schweizer Datenschutzgesetz (DSG, in Kraft seit 1. September 2023) und DSGVO</strong><br>
+    Stand: 2025 · Beauty Palast – Andrea Teles · Brückenweg 3, 3930 Visp
+  </div>
+
+  <div class="sections">
+
+    <!-- 1 -->
+    <div class="section">
+      <h2>1. Verantwortliche Stelle <span style="font-size:0.75rem;color:var(--text-light);font-family:'Inter',sans-serif;">(Art. 19 DSG)</span></h2>
+      <p>Verantwortlich für die Bearbeitung von Personendaten auf dieser Website ist:</p>
+      <p>
+        <strong style="color:var(--text);">Beauty Palast – Andrea Teles</strong><br>
+        Brückenweg 3, 3. Obergeschoss<br>
+        3930 Visp, Wallis, Schweiz<br>
+        Telefon: <a href="tel:+41794697791" style="color:var(--accent);text-decoration:none;">+41 79 469 77 91</a>
+      </p>
+      <p>Es wird kein Datenschutzbeauftragter benannt, da dies für Einzelunternehmen dieser Grösse gesetzlich nicht verpflichtend ist. Bei datenschutzrelevanten Anliegen wenden Sie sich direkt an die oben genannte Kontaktperson.</p>
+    </div>
+
+    <!-- 2 -->
+    <div class="section">
+      <h2>2. Welche Personendaten wir bearbeiten</h2>
+      <p>Wir bearbeiten nur Daten, die für die Erbringung unserer Dienstleistungen erforderlich sind. Je nach Kontaktart erfassen wir folgende Kategorien:</p>
+      <div class="data-box">
+        <div class="data-box-title">Bei telefonischer Terminvereinbarung</div>
+        <p>Name, Telefonnummer, gewünschte Behandlung, Termin­datum und -uhrzeit.</p>
+      </div>
+      <div class="data-box">
+        <div class="data-box-title">Bei der Behandlung (besonders schützenswerte Daten)</div>
+        <p>Gesundheitliche Informationen (z. B. Hauttyp, Allergien, Vorbehandlungen), die für eine sichere und individuelle Behandlung notwendig sind. Diese Daten werden vertraulich behandelt und ausschliesslich intern verwendet.</p>
+      </div>
+      <div class="data-box">
+        <div class="data-box-title">Beim Besuch dieser Website (technische Daten)</div>
+        <p>IP-Adresse (anonymisiert), Browsertyp, Betriebssystem, Referrer-URL, Datum und Uhrzeit des Zugriffs. Diese Daten dienen dem technischen Betrieb und werden nicht zur Identifikation einzelner Personen verwendet.</p>
+      </div>
+    </div>
+
+    <!-- 3 -->
+    <div class="section">
+      <h2>3. Zweck und Rechtsgrundlage der Datenbearbeitung</h2>
+      <p>Ihre Daten werden ausschliesslich für folgende Zwecke bearbeitet:</p>
+      <ul>
+        <li>Vereinbarung, Verwaltung und Durchführung von Behandlungsterminen <em>(Vertragserfüllung – Art. 6 Abs. 1 lit. b DSGVO)</em></li>
+        <li>Individuelle Behandlungsplanung und Sicherheit der Kunden <em>(Vertragserfüllung / berechtigtes Interesse – Art. 6 Abs. 1 lit. f DSGVO)</em></li>
+        <li>Einhaltung gesetzlicher Aufbewahrungspflichten <em>(gesetzliche Verpflichtung – Art. 6 Abs. 1 lit. c DSGVO)</em></li>
+        <li>Technischer Betrieb und Sicherheit der Website <em>(berechtigtes Interesse – Art. 6 Abs. 1 lit. f DSGVO)</em></li>
+      </ul>
+      <p style="margin-top:1rem;">Besonders schützenswerte Gesundheitsdaten werden gestützt auf Art. 6 Abs. 1 lit. b DSGVO (Vertragserfüllung) sowie mit ausdrücklicher Einwilligung der betroffenen Person bearbeitet. Rechtsgrundlage im Schweizer Recht: Art. 4 und Art. 19 DSG.</p>
+    </div>
+
+    <!-- 4 -->
+    <div class="section">
+      <h2>4. Weitergabe von Personendaten</h2>
+      <p>Ihre Personendaten werden grundsätzlich nicht an Dritte weitergegeben, verkauft oder vermietet. Eine Weitergabe erfolgt ausnahmsweise nur in folgenden Fällen:</p>
+      <ul>
+        <li>An Behörden, soweit wir gesetzlich dazu verpflichtet sind</li>
+        <li>An Hosting-Dienstleister, die im Rahmen einer Auftragsverarbeitung technische Infrastruktur bereitstellen – ausschliesslich auf Basis schriftlicher Vereinbarungen</li>
+      </ul>
+      <p>Eine Datenübermittlung in Länder ausserhalb der Schweiz oder der EU findet nicht statt, soweit nicht im Einzelfall anders angegeben (z. B. bei Nutzung des Google-Maps-Links, vgl. Abschnitt 8).</p>
+    </div>
+
+    <!-- 5 -->
+    <div class="section">
+      <h2>5. Speicherdauer</h2>
+      <p>Personendaten werden nur so lange aufbewahrt, wie es für den jeweiligen Zweck notwendig ist oder gesetzliche Aufbewahrungsfristen bestehen:</p>
+      <ul>
+        <li>Behandlungsdokumentation: gemäss kantonalen und bundesrechtlichen Vorgaben <em>(in der Regel 10 Jahre)</em></li>
+        <li>Terminbuchungen und Kontaktdaten: bis zum Ablauf der Geschäftsbeziehung, längstens nach Ablauf gesetzlicher Fristen</li>
+        <li>Server-Logfiles: in der Regel 30 Tage, danach automatische Löschung</li>
+      </ul>
+      <p>Nach Ablauf der Aufbewahrungsfristen werden Daten sicher und unwiederbringlich gelöscht oder anonymisiert.</p>
+    </div>
+
+    <!-- 6 -->
+    <div class="section">
+      <h2>6. Ihre Rechte als betroffene Person <span style="font-size:0.75rem;color:var(--text-light);font-family:'Inter',sans-serif;">(Art. 25 DSG / Art. 15–22 DSGVO)</span></h2>
+      <p>Sie haben jederzeit folgende Rechte in Bezug auf Ihre Personendaten:</p>
+      <ul>
+        <li><strong>Auskunft</strong> – Welche Daten wir über Sie gespeichert haben <em>(Art. 25 DSG / Art. 15 DSGVO)</em></li>
+        <li><strong>Berichtigung</strong> – Unrichtige oder unvollständige Daten korrigieren lassen <em>(Art. 32 DSG / Art. 16 DSGVO)</em></li>
+        <li><strong>Löschung</strong> – Löschung Ihrer Daten verlangen, sofern keine gesetzliche Aufbewahrungspflicht besteht <em>(Art. 32 DSG / Art. 17 DSGVO)</em></li>
+        <li><strong>Einschränkung</strong> – Verarbeitung einschränken lassen <em>(Art. 18 DSGVO)</em></li>
+        <li><strong>Widerspruch</strong> – Der Datenverarbeitung widersprechen, soweit diese auf berechtigtem Interesse beruht <em>(Art. 21 DSGVO)</em></li>
+        <li><strong>Datenübertragbarkeit</strong> – Ihre Daten in einem gängigen Format erhalten <em>(Art. 20 DSGVO)</em></li>
+        <li><strong>Widerruf der Einwilligung</strong> – Eine erteilte Einwilligung jederzeit ohne Angabe von Gründen widerrufen</li>
+      </ul>
+      <p>Zur Ausübung Ihrer Rechte wenden Sie sich an: <a href="tel:+41794697791" style="color:var(--accent);text-decoration:none;">+41 79 469 77 91</a> oder Beauty Palast – Andrea Teles, Brückenweg 3, 3930 Visp.</p>
+      <p style="font-size:0.82rem;color:var(--text-light);">Zur Identitätsprüfung behalten wir uns vor, bei Auskunftsersuchen einen Identitätsnachweis zu verlangen.</p>
+    </div>
+
+    <!-- 7 -->
+    <div class="section">
+      <h2>7. Cookies und Website-Technologien</h2>
+      <p>Diese Website verwendet <strong>keine Tracking-Cookies</strong>, keine Analyse-Tools von Drittanbietern (z. B. Google Analytics) und keine Social-Media-Plugins. Es werden ausschliesslich technisch notwendige Funktionen eingesetzt. Es werden keine Nutzerprofile erstellt und keine Daten an Werbenetzwerke übermittelt.</p>
+      <p>Ein Cookie-Banner ist aus diesem Grund nicht erforderlich.</p>
+    </div>
+
+    <!-- 8 -->
+    <div class="section">
+      <h2>8. Externer Link zu Google Maps</h2>
+      <p>Diese Website enthält einen externen Link zu Google Maps (<a href="https://maps.google.com" target="_blank" style="color:var(--accent);text-decoration:none;">maps.google.com</a>). Beim Anklicken verlassen Sie unsere Website und werden auf den Dienst von Google LLC, USA, weitergeleitet. Google kann dabei Ihre personenbezogenen Daten gemäss den eigenen Datenschutzbestimmungen verarbeiten.</p>
+      <p>Google Maps wird nicht eingebettet – es handelt sich ausschliesslich um einen externen Verweislink. Wir haben keinen Einfluss auf die Datenverarbeitung durch Google. Weitere Informationen: <a href="https://policies.google.com/privacy" target="_blank" style="color:var(--accent);text-decoration:none;">policies.google.com/privacy</a></p>
+    </div>
+
+    <!-- 9 -->
+    <div class="section">
+      <h2>9. Hosting und technischer Betrieb</h2>
+      <p>Diese Website wird über einen externen Hosting-Anbieter betrieben. Im Rahmen des technischen Betriebs werden automatisch Server-Logfiles erzeugt, die technische Zugriffsdaten enthalten (IP-Adresse, Zeitstempel, aufgerufene Seiten). Diese Daten dienen ausschliesslich der Betriebssicherheit und werden nicht personenbezogen ausgewertet.</p>
+    </div>
+
+    <!-- 10 -->
+    <div class="section">
+      <h2>10. Datensicherheit <span style="font-size:0.75rem;color:var(--text-light);font-family:'Inter',sans-serif;">(Art. 8 DSG)</span></h2>
+      <p>Wir treffen angemessene technische und organisatorische Massnahmen zum Schutz Ihrer Personendaten vor unbefugtem Zugriff, Verlust, Missbrauch oder Verfälschung. Die Datenübertragung auf dieser Website erfolgt verschlüsselt (HTTPS/TLS). Zugang zu Kundendaten haben ausschliesslich Personen, die diese für die Behandlung benötigen.</p>
+    </div>
+
+    <!-- 11 -->
+    <div class="section">
+      <h2>11. Automatisierte Entscheidungsfindung / Profiling</h2>
+      <p>Wir führen keine automatisierte Entscheidungsfindung und kein Profiling im Sinne von Art. 22 DSGVO bzw. Art. 21 DSG durch. Alle Entscheidungen im Rahmen der Behandlung erfolgen durch qualifiziertes Personal.</p>
+    </div>
+
+    <!-- 12 -->
+    <div class="section">
+      <h2>12. Beschwerderecht bei der Aufsichtsbehörde</h2>
+      <p>Sie haben das Recht, sich bei der zuständigen Aufsichtsbehörde zu beschweren, wenn Sie der Ansicht sind, dass die Bearbeitung Ihrer Personendaten gegen das anwendbare Datenschutzrecht verstösst.</p>
+      <p>
+        <strong style="color:var(--text);">Eidgenössischer Datenschutz- und Öffentlichkeitsbeauftragter (EDÖB)</strong><br>
+        Feldeggweg 1 · 3003 Bern, Schweiz<br>
+        <a href="https://www.edoeb.admin.ch" target="_blank" style="color:var(--accent);text-decoration:none;">www.edoeb.admin.ch</a>
+      </p>
+      <p>Sofern Sie in der EU ansässig sind, steht Ihnen auch die zuständige Datenschutzbehörde Ihres Wohnsitzlandes offen.</p>
+    </div>
+
+    <!-- 13 -->
+    <div class="section">
+      <h2>13. Änderungen dieser Datenschutzerklärung</h2>
+      <p>Wir behalten uns vor, diese Datenschutzerklärung bei Bedarf anzupassen – etwa bei Änderungen der Rechtslage, der eingesetzten Technologien oder unseres Leistungsangebots. Die jeweils aktuelle Fassung mit Stand-Datum ist stets auf dieser Seite abrufbar.</p>
+    </div>
+
+    <!-- Info box -->
+    <div class="info-box">
+      <p><strong>Rechtsgrundlagen:</strong> Diese Datenschutzerklärung basiert auf dem schweizerischen Bundesgesetz über den Datenschutz (DSG, revidierte Fassung in Kraft seit 1. September 2023) sowie auf der Europäischen Datenschutz-Grundverordnung (DSGVO, EU 2016/679), soweit diese anwendbar ist.</p>
+    </div>
+
+  </div>
+
+  <!-- Contact CTA -->
+  <div class="contact-block">
+    <div>
+      <p><strong>Fragen zum Datenschutz?</strong>
+      Wenden Sie sich direkt an uns:<br>
+      Beauty Palast – Andrea Teles<br>
+      Brückenweg 3, 3. OG · 3930 Visp<br>
+      <a href="tel:+41794697791">+41 79 469 77 91</a></p>
+    </div>
+    <a href="tel:+41794697791" class="btn">Jetzt anrufen</a>
+  </div>
+
+</main>
+
+<footer>
+  <a class="footer-logo" href="beauty-palast.html">Beauty Palast</a>
+  <span class="footer-info">© 2025 Beauty Palast – Andrea Teles · Visp, Wallis</span>
+  <div class="footer-contact"><a href="tel:+41794697791">+41 79 469 77 91</a></div>
+</footer>
+
+</body>
+</html>
