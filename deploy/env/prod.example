@@ -1,0 +1,14 @@
+# Copied to deploy/env/.env.prod on first deploy (generated secrets).
+# Do not commit .env.prod.
+
+DOMAIN=beauty-palast-visp.ch
+SITE_URL=https://beauty-palast-visp.ch
+CERTBOT_EMAIL=webmaster@beauty-palast-visp.ch
+
+MYSQL_DATABASE=beautypalast
+MYSQL_USER=beautypalast
+MYSQL_PASSWORD=change-me
+MYSQL_ROOT_PASSWORD=change-me-too
+
+ADMIN_PASSWORD=change-me
+SESSION_SECRET=generate-a-long-random-string

@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Impressum – Beauty Palast | Andrea Teles</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --cream: #F5F0E8;
+  --cream-dark: #EDE6D6;
+  --cream-deep: #E4DBCA;
+  --sand: #C9B89A;
+  --brown: #5C4A35;
+  --dark: #1C1814;
+  --text: #2A2118;
+  --text-mid: #6B5B4A;
+  --text-light: #9B8B7A;
+  --white: #FDFAF5;
+  --accent: #8B6B4A;
+}
+html { scroll-behavior: smooth; }
+body { font-family: 'Inter', sans-serif; background: var(--cream); color: var(--text); line-height: 1.7; }
+
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 1.2rem 3rem;
+  background: rgba(245,240,232,0.95);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(201,184,154,0.3);
+}
+.nav-logo { font-family: 'Playfair Display', serif; font-size: 1.2rem; color: var(--text); text-decoration: none; }
+.nav-back { font-size: 0.8rem; color: var(--text-light); text-decoration: none; letter-spacing: 0.04em; transition: color 0.2s; }
+.nav-back:hover { color: var(--text); }
+
+main { max-width: 760px; margin: 0 auto; padding: 8rem 2.5rem 6rem; }
+
+/* Header */
+.imp-eyebrow { font-size: 0.7rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--text-light); display: block; margin-bottom: 0.75rem; }
+.imp-title { font-family: 'Playfair Display', serif; font-size: clamp(2.2rem, 5vw, 3.5rem); font-weight: 400; line-height: 1.1; margin-bottom: 0.75rem; }
+.imp-subtitle { font-size: 0.85rem; color: var(--text-light); margin-bottom: 0.35rem; }
+.imp-stand { font-size: 0.8rem; color: var(--text-light); margin-bottom: 3rem; }
+
+/* TOC */
+.toc {
+  background: var(--white);
+  border: 1px solid var(--cream-deep);
+  border-radius: 10px;
+  padding: 1.5rem 2rem;
+  margin-bottom: 3.5rem;
+  display: flex; flex-direction: column; gap: 0.4rem;
+}
+.toc-title { font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--text-light); margin-bottom: 0.5rem; display: block; }
+.toc a { font-size: 0.85rem; color: var(--text-mid); text-decoration: none; display: flex; align-items: center; gap: 0.5rem; transition: color 0.2s; }
+.toc a:hover { color: var(--accent); }
+.toc-num { font-size: 0.72rem; color: var(--text-light); font-family: 'Playfair Display', serif; font-style: italic; min-width: 24px; }
+
+/* Sections */
+.imp-section { margin-bottom: 3.5rem; padding-bottom: 3.5rem; border-bottom: 1px solid var(--cream-deep); }
+.imp-section:last-of-type { border-bottom: none; }
+
+.imp-section-num {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 0.85rem;
+  color: var(--text-light);
+  display: block;
+  margin-bottom: 0.5rem;
+}
+.imp-section h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.5rem;
+  font-weight: 400;
+  color: var(--text);
+  margin-bottom: 1.5rem;
+}
+.imp-section p { font-size: 0.9rem; color: var(--text-mid); line-height: 1.85; margin-bottom: 0.75rem; }
+.imp-section p:last-child { margin-bottom: 0; }
+.imp-section a { color: var(--accent); text-decoration: none; }
+.imp-section a:hover { text-decoration: underline; }
+
+/* Data rows */
+.data-grid { display: grid; grid-template-columns: 180px 1fr; gap: 0; }
+.data-row { display: contents; }
+.data-row .label { font-size: 0.78rem; color: var(--text-light); padding: 0.55rem 1rem 0.55rem 0; border-bottom: 1px solid var(--cream-deep); }
+.data-row .value { font-size: 0.88rem; color: var(--text); padding: 0.55rem 0; border-bottom: 1px solid var(--cream-deep); }
+.data-row:last-child .label,
+.data-row:last-child .value { border-bottom: none; }
+.data-row .value a { color: var(--accent); text-decoration: none; }
+.data-row .value a:hover { text-decoration: underline; }
+.data-row .value strong { color: var(--text); font-weight: 500; }
+
+/* Agency card */
+.agency-card {
+  background: var(--white);
+  border: 1px solid var(--cream-deep);
+  border-radius: 12px;
+  padding: 2rem;
+  margin-top: 0.5rem;
+}
+.agency-badge {
+  width: 44px; height: 44px;
+  background: var(--dark);
+  border-radius: 8px;
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 1rem;
+  color: var(--white);
+  margin-bottom: 1rem;
+  letter-spacing: 0.03em;
+}
+.agency-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.15rem;
+  font-weight: 400;
+  color: var(--text);
+  margin-bottom: 0.25rem;
+}
+.agency-type { font-size: 0.78rem; color: var(--text-light); margin-bottom: 1.25rem; }
+
+/* Footer */
+footer {
+  background: var(--dark);
+  padding: 2.5rem 3rem;
+  display: flex; justify-content: space-between; align-items: center;
+  flex-wrap: wrap; gap: 1rem;
+  margin-top: 5rem;
+}
+.footer-logo { font-family: 'Playfair Display', serif; color: var(--white); font-size: 1rem; text-decoration: none; }
+.footer-links { display: flex; gap: 1.5rem; }
+.footer-links a { font-size: 0.75rem; color: rgba(253,250,245,0.35); text-decoration: none; }
+.footer-links a:hover { color: rgba(253,250,245,0.7); }
+.footer-copy { font-size: 0.75rem; color: rgba(253,250,245,0.3); }
+
+@media (max-width: 600px) {
+  nav { padding: 1rem 1.5rem; }
+  main { padding: 7rem 1.25rem 4rem; }
+  .data-grid { grid-template-columns: 140px 1fr; }
+  footer { padding: 2rem 1.25rem; flex-direction: column; align-items: flex-start; gap: 0.75rem; }
+  .toc { padding: 1.25rem; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="beauty-palast.html">Beauty Palast</a>
+  <a class="nav-back" href="beauty-palast.html">← Zurück zur Website</a>
+</nav>
+
+<main>
+
+  <span class="imp-eyebrow">Beauty Palast · Andrea Teles · Visp</span>
+  <h1 class="imp-title">Impressum</h1>
+  <p class="imp-subtitle">Angaben gemäss Art. 3 Abs. 1 lit. s des Bundesgesetzes gegen den unlauteren Wettbewerb (UWG) sowie ergänzende Informationen zur Transparenz und zum Datenschutz.</p>
+  <p class="imp-stand">Stand: 2025</p>
+
+  <!-- TOC -->
+  <div class="toc">
+    <span class="toc-title">Inhalt</span>
+    <a href="#betreiberin"><span class="toc-num">01</span> Betreiberin</a>
+    <a href="#verantwortlich"><span class="toc-num">02</span> Verantwortlich für den Inhalt</a>
+    <a href="#umsetzung"><span class="toc-num">03</span> Konzeption &amp; Umsetzung</a>
+    <a href="#haftung"><span class="toc-num">04</span> Haftungsausschluss</a>
+    <a href="#links"><span class="toc-num">05</span> Externe Links</a>
+    <a href="#urheberrecht"><span class="toc-num">06</span> Urheberrecht</a>
+    <a href="#bilder"><span class="toc-num">07</span> Bildnachweise</a>
+    <a href="#datenschutz"><span class="toc-num">08</span> Datenschutz</a>
+    <a href="#recht"><span class="toc-num">09</span> Recht &amp; Gerichtsstand</a>
+    <a href="#aenderungen"><span class="toc-num">10</span> Änderungen</a>
+  </div>
+
+  <!-- 01 Betreiberin -->
+  <div class="imp-section" id="betreiberin">
+    <span class="imp-section-num">01</span>
+    <h2>Betreiberin der Website</h2>
+    <div class="data-grid">
+      <div class="data-row"><div class="label">Name</div><div class="value"><strong>Beauty Palast</strong></div></div>
+      <div class="data-row"><div class="label">Inhaberin</div><div class="value">Andrea Teles</div></div>
+      <div class="data-row"><div class="label">Unternehmensform</div><div class="value">Einzelunternehmen</div></div>
+      <div class="data-row"><div class="label">Tätigkeitsbereich</div><div class="value">Kosmetik, Wellness und Körperpflege</div></div>
+      <div class="data-row"><div class="label">Adresse</div><div class="value">Brückenweg 3, 3. Obergeschoss<br>3930 Visp, Kanton Wallis<br>Schweiz</div></div>
+      <div class="data-row"><div class="label">Telefon</div><div class="value"><a href="tel:+41794697791">+41 79 469 77 91</a></div></div>
+      <div class="data-row"><div class="label">Öffnungszeiten</div><div class="value">Mo–Fr: 09:00–12:00 / 13:30–18:30 Uhr</div></div>
+      <div class="data-row"><div class="label">Mehrwertsteuer</div><div class="value">Nicht MWST-pflichtig gemäss Art. 10 Abs. 2 MWSTG</div></div>
+    </div>
+  </div>
+
+  <!-- 02 Verantwortlich -->
+  <div class="imp-section" id="verantwortlich">
+    <span class="imp-section-num">02</span>
+    <h2>Verantwortlich für den Inhalt</h2>
+    <p>Verantwortlich für den Inhalt dieser Website im Sinne von Art. 322 StGB:</p>
+    <div class="data-grid" style="margin-top:0.75rem;">
+      <div class="data-row"><div class="label">Person</div><div class="value"><strong>Andrea Teles</strong></div></div>
+      <div class="data-row"><div class="label">Funktion</div><div class="value">Inhaberin, Beauty Palast</div></div>
+      <div class="data-row"><div class="label">Adresse</div><div class="value">Brückenweg 3, 3. OG · 3930 Visp</div></div>
+      <div class="data-row"><div class="label">Telefon</div><div class="value"><a href="tel:+41794697791">+41 79 469 77 91</a></div></div>
+    </div>
+  </div>
+
+  <!-- 03 Konzeption & Umsetzung -->
+  <div class="imp-section" id="umsetzung">
+    <span class="imp-section-num">03</span>
+    <h2>Konzeption, Gestaltung und technische Umsetzung</h2>
+    <p>Diese Website wurde konzipiert, gestaltet und technisch realisiert durch:</p>
+    <div class="agency-card">
+      <div class="agency-badge">AK</div>
+      <div class="agency-name">Alpine Künstliche Intelligenz AG</div>
+      <div class="agency-type">Aktiengesellschaft nach Schweizer Recht</div>
+      <div class="data-grid">
+        <div class="data-row"><div class="label">Adresse</div><div class="value">Pappelweg 5<br>3945 Gampel<br>Kanton Wallis, Schweiz</div></div>
+        <div class="data-row"><div class="label">Ansprechpartnerin</div><div class="value">Mery Paola Ruffiner</div></div>
+        <div class="data-row"><div class="label">Telefon</div><div class="value"><a href="tel:+41795276443">+41 79 527 64 43</a></div></div>
+        <div class="data-row"><div class="label">E-Mail</div><div class="value"><a href="mailto:paola@alpine-ki.ch">paola@alpine-ki.ch</a></div></div>
+        <div class="data-row"><div class="label">Web</div><div class="value"><a href="https://www.alpine-ki.ch" target="_blank">www.alpine-ki.ch ↗</a></div></div>
+        <div class="data-row"><div class="label">Handelsregister</div><div class="value">Handelsregisteramt Kanton Wallis</div></div>
+        <div class="data-row"><div class="label">UID</div><div class="value">CHE-390.652.968</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 04 Haftung -->
+  <div class="imp-section" id="haftung">
+    <span class="imp-section-num">04</span>
+    <h2>Haftungsausschluss</h2>
+    <p>Die Betreiberin erstellt und pflegt die Inhalte dieser Website mit grösster Sorgfalt und bemüht sich um korrekte, aktuelle und vollständige Informationen. Eine Haftung oder Garantie für die Aktualität, Richtigkeit und Vollständigkeit der zur Verfügung gestellten Informationen ist jedoch ausgeschlossen.</p>
+    <p>Preisangaben, Behandlungsbeschreibungen und Verfügbarkeiten dienen der allgemeinen Information und stellen kein rechtlich verbindliches Angebot dar. Verbindlich sind ausschliesslich die im Rahmen eines konkreten Termins oder Vertragsverhältnisses mündlich oder schriftlich vereinbarten Bedingungen.</p>
+  </div>
+
+  <!-- 05 Externe Links -->
+  <div class="imp-section" id="links">
+    <span class="imp-section-num">05</span>
+    <h2>Externe Links</h2>
+    <p>Diese Website enthält Verweise auf Websites Dritter (externe Links), die ausserhalb des Verantwortungsbereichs der Betreiberin liegen. Für die Inhalte dieser Websites ist ausschliesslich der jeweilige Anbieter oder Betreiber verantwortlich. Die Betreiberin hat keinen Einfluss auf die aktuelle und künftige Gestaltung, den Inhalt oder die Urheberschaft der verlinkten Seiten und übernimmt keine Verantwortung für deren Inhalte, Datenschutzpraktiken oder Verfügbarkeit.</p>
+  </div>
+
+  <!-- 06 Urheberrecht -->
+  <div class="imp-section" id="urheberrecht">
+    <span class="imp-section-num">06</span>
+    <h2>Urheberrecht und Nutzungsrechte</h2>
+    <p>Sämtliche Inhalte dieser Website — insbesondere Texte, Bilder, Grafiken, Logos, Layout, Quellcode und weitere Werke — sind urheberrechtlich geschützt und Eigentum der Beauty Palast – Andrea Teles bzw. der jeweils genannten Rechteinhaber.</p>
+    <p>Jede Vervielfältigung, Bearbeitung, Verbreitung oder anderweitige Verwertung, ganz oder auszugsweise, bedarf der vorherigen schriftlichen Zustimmung der Betreiberin. Der Download einzelner Inhalte zum privaten, nicht kommerziellen Gebrauch ist gestattet.</p>
+  </div>
+
+  <!-- 07 Bildnachweise -->
+  <div class="imp-section" id="bilder">
+    <span class="imp-section-num">07</span>
+    <h2>Bildnachweise</h2>
+    <p>Alle auf dieser Website verwendeten Bildmaterialien sind Eigentum der Beauty Palast – Andrea Teles oder ordnungsgemäss lizenziert. Detaillierte Bildnachweise sind auf schriftliche Anfrage über <a href="tel:+41794697791">+41 79 469 77 91</a> erhältlich.</p>
+  </div>
+
+  <!-- 08 Datenschutz -->
+  <div class="imp-section" id="datenschutz">
+    <span class="imp-section-num">08</span>
+    <h2>Datenschutz</h2>
+    <p>Informationen zur Erhebung, Verarbeitung und Nutzung personenbezogener Daten im Rahmen des Besuchs dieser Website entnehmen Sie bitte unserer Datenschutzerklärung.</p>
+    <p><a href="datenschutz-beauty-palast.html">Datenschutzerklärung ansehen →</a></p>
+  </div>
+
+  <!-- 09 Recht & Gerichtsstand -->
+  <div class="imp-section" id="recht">
+    <span class="imp-section-num">09</span>
+    <h2>Anwendbares Recht und Gerichtsstand</h2>
+    <p>Für sämtliche Rechtsbeziehungen aus oder im Zusammenhang mit dieser Website gilt ausschliesslich Schweizer Recht unter Ausschluss internationaler Kollisionsnormen.</p>
+    <p>Ausschliesslicher Gerichtsstand ist Visp, Kanton Wallis, Schweiz — vorbehaltlich zwingender gesetzlicher Vorschriften zugunsten von Konsumentinnen und Konsumenten.</p>
+  </div>
+
+  <!-- 10 Änderungen -->
+  <div class="imp-section" id="aenderungen">
+    <span class="imp-section-num">10</span>
+    <h2>Änderungen des Impressums</h2>
+    <p>Die Betreiberin behält sich das Recht vor, die Angaben in diesem Impressum bei Bedarf jederzeit anzupassen und dem geltenden Recht anzugleichen. Die jeweils aktuelle Version ist stets auf dieser Seite abrufbar.</p>
+    <p style="font-size:0.82rem;color:var(--text-light);">Stand: 2025 · Beauty Palast – Andrea Teles · Visp · Oberwallis</p>
+  </div>
+
+</main>
+
+<footer>
+  <a class="footer-logo" href="beauty-palast.html">Beauty Palast</a>
+  <div class="footer-links">
+    <a href="beauty-palast.html">Website</a>
+    <a href="datenschutz-beauty-palast.html">Datenschutz</a>
+    <a href="impressum-beauty-palast.html">Impressum</a>
+  </div>
+  <span class="footer-copy">© 2025 Beauty Palast – Andrea Teles · Visp, Wallis</span>
+</footer>
+
+</body>
+</html>

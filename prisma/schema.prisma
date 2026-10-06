@@ -1,0 +1,370 @@
+// Beauty Palast — CMS content schema (MySQL)
+// Structure mirrors docs/remixed-bb4f3136.html (3 pages: home, services, about).
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "mysql"
+}
+
+// ---------------------------------------------------------------------------
+// Shared / section headings
+// ---------------------------------------------------------------------------
+
+/// Editable eyebrow + title (lead + italic accent) for the various sections.
+model SectionHeading {
+  key       String @id @db.VarChar(64)
+  eyebrow   String @db.VarChar(255)
+  titleLead String @db.VarChar(255)
+  titleEm   String @db.VarChar(255)
+}
+
+// ---------------------------------------------------------------------------
+// HOME PAGE
+// ---------------------------------------------------------------------------
+
+/// Singleton row (id always 1) holding the hero section content.
+model Hero {
+  id                Int    @id @default(1)
+  tag               String @db.VarChar(255)
+  titleLine         String @db.VarChar(255)
+  titleEm           String @db.VarChar(255)
+  subtitle          String @db.Text
+  ctaPhone          String @db.VarChar(50)
+  ctaPrimaryLabel   String @default("Termin buchen") @db.VarChar(100)
+  ctaSecondaryLabel String @default("Leistungen entdecken") @db.VarChar(100)
+  imageUrl          String @default("") @db.VarChar(255)
+}
+
+model HeroBadge {
+  id       Int    @id @default(autoincrement())
+  text     String @db.VarChar(255)
+  position Int    @default(0)
+
+  @@index([position])
+}
+
+/// Small floating stat card overlaid on the hero image.
+model HeroStat {
+  id       Int    @id @default(autoincrement())
+  num      String @db.VarChar(50)
+  label    String @db.VarChar(255)
+  position Int    @default(0)
+
+  @@index([position])
+}
+
+/// Dark stats bar below the hero.
+model Stat {
+  id       Int    @id @default(autoincrement())
+  num      String @db.VarChar(50)
+  label    String @db.VarChar(255)
+  position Int    @default(0)
+
+  @@index([position])
+}
+
+model Brand {
+  id       Int    @id @default(autoincrement())
+  name     String @db.VarChar(255)
+  position Int    @default(0)
+
+  @@index([position])
+}
+
+/// Singleton row (id always 1) holding the "About / Highlight" section content
+/// shown on the home page (with the mid-sentence italic accents).
+model About {
+  id          Int    @id @default(1)
+  tag         String @db.VarChar(255)
+  titlePrefix String @db.VarChar(255)
+  titleEm1    String @db.VarChar(255)
+  titleMid    String @db.VarChar(255)
+  titleEm2    String @db.VarChar(255)
+  text        String @db.Text
+  imageUrl    String @default("") @db.VarChar(255)
+}
+
+model AboutFeature {
+  id       Int    @id @default(autoincrement())
+  text     String @db.VarChar(500)
+  position Int    @default(0)
+
+  @@index([position])
+}
+
+/// Service preview cards on the home page.
+model Service {
+  id          Int     @id @default(autoincrement())
+  title       String  @db.VarChar(255)
+  description String  @db.Text
+  popular     Boolean @default(false)
+  imageUrl    String  @default("") @db.VarChar(255)
+  position    Int     @default(0)
+
+  @@index([position])
+}
+
+/// "So funktioniert Ihre Behandlung" — process steps on the home page.
+model ProcessStep {
+  id       Int    @id @default(autoincrement())
+  stepLabel String @db.VarChar(100)
+  title    String @db.VarChar(255)
+  titleEm  String @db.VarChar(255)
+  text     String @db.Text
+  position Int    @default(0)
+
+  @@index([position])
+}
+
+/// Testimonials — shown on both home (page="home") and about (page="about").
+model Testimonial {
+  id       Int    @id @default(autoincrement())
+  page     String @default("home") @db.VarChar(20)
+  text     String @db.Text
+  name     String @db.VarChar(255)
+  service  String @db.VarChar(255)
+  position Int    @default(0)
+
+  @@index([page, position])
+}
+
+model FaqItem {
+  id       Int    @id @default(autoincrement())
+  question String @db.VarChar(500)
+  answer   String @db.Text
+  position Int    @default(0)
+
+  @@index([position])
+}
+
+/// Salon photo gallery. One shared set, rendered on all three public pages
+/// (home, /leistungen and /ueber-andrea) — the client uploads the photos once.
+model GalleryImage {
+  id       Int    @id @default(autoincrement())
+  imageUrl String @default("") @db.VarChar(255)
+  alt      String @default("") @db.VarChar(255)
+  caption  String @default("") @db.VarChar(255)
+  position Int    @default(0)
+
+  @@index([position])
+}
+
+// ---------------------------------------------------------------------------
+// ABOUT PAGE ("Über Andrea")
+// ---------------------------------------------------------------------------
+
+/// Singleton row (id always 1) — hero of the About page.
+model AboutPage {
+  id       Int    @id @default(1)
+  eyebrow  String @db.VarChar(255)
+  name     String @db.VarChar(255)
+  nameEm   String @db.VarChar(255)
+  role     String @db.VarChar(255)
+  bio1     String @db.Text
+  bio2     String @db.Text
+  quote    String @db.Text
+  imageUrl String @default("") @db.VarChar(255)
+}
+
+model Diploma {
+  id       Int    @id @default(autoincrement())
+  icon     String @db.VarChar(16)
+  title    String @db.VarChar(255)
+  school   String @db.VarChar(255)
+  position Int    @default(0)
+
+  @@index([position])
+}
+
+model Value {
+  id       Int    @id @default(autoincrement())
+  num      String @db.VarChar(10)
+  title    String @db.VarChar(255)
+  text     String @db.Text
+  position Int    @default(0)
+
+  @@index([position])
+}
+
+// ---------------------------------------------------------------------------
+// SERVICES PAGE ("Leistungen & Preise")
+// ---------------------------------------------------------------------------
+
+/// Singleton row (id always 1) — hero/intro of the Services page.
+model ServicesIntro {
+  id          Int    @id @default(1)
+  eyebrow     String @db.VarChar(255)
+  titleLead   String @db.VarChar(255)
+  titleEm     String @db.VarChar(255)
+  description String @db.Text
+  imageUrl    String @default("") @db.VarChar(255)
+}
+
+/// A priced service block (e.g. "Make-up", "Haarentfernung").
+model PriceGroup {
+  id          Int         @id @default(autoincrement())
+  title       String      @db.VarChar(255)
+  titleEm     String      @db.VarChar(255)
+  description String      @db.Text
+  note        String?     @db.VarChar(500)
+  imageUrl    String      @default("") @db.VarChar(255)
+  position    Int         @default(0)
+  items       PriceItem[]
+
+  @@index([position])
+}
+
+/// A single row within a price table, optionally grouped under a category.
+model PriceItem {
+  id       Int        @id @default(autoincrement())
+  groupId  Int
+  group    PriceGroup @relation(fields: [groupId], references: [id], onDelete: Cascade)
+  category String?    @db.VarChar(255)
+  label    String     @db.VarChar(255)
+  price    String     @db.VarChar(50)
+  position Int        @default(0)
+
+  @@index([groupId, position])
+}
+
+// ---------------------------------------------------------------------------
+// CONTACT (shared)
+// ---------------------------------------------------------------------------
+
+/// Singleton row (id always 1) holding contact/business info.
+model Contact {
+  id           Int    @id @default(1)
+  businessName String @db.VarChar(255)
+  phone        String @db.VarChar(50)
+  phoneDisplay String @db.VarChar(50)
+  addressLine1 String @db.VarChar(255)
+  addressLine2 String @db.VarChar(255)
+  mapUrl           String  @db.VarChar(500)
+  logoUrl          String  @default("") @db.VarChar(255)
+  logoWhiteUrl     String  @default("") @db.VarChar(255)
+  showBusinessName Boolean @default(true)
+  instagramUrl     String  @default("") @db.VarChar(500)
+  facebookUrl      String  @default("") @db.VarChar(500)
+  tiktokUrl        String  @default("") @db.VarChar(500)
+}
+
+model ContactHour {
+  id       Int    @id @default(autoincrement())
+  days     String @db.VarChar(255)
+  time     String @db.VarChar(255)
+  position Int    @default(0)
+
+  @@index([position])
+}
+
+/// Short clips for the "So finden Sie uns" block. The layout reserves two
+/// slots; a list (rather than two columns on Contact) keeps 0/1/2 videos all
+/// valid and reuses the admin's generic list editor.
+model ContactVideo {
+  id        Int    @id @default(autoincrement())
+  title     String @default("") @db.VarChar(255)
+  videoUrl  String @default("") @db.VarChar(500)
+  posterUrl String @default("") @db.VarChar(255)
+  position  Int    @default(0)
+
+  @@index([position])
+}
+
+// ---------------------------------------------------------------------------
+// SEO & MARKETING (editable from the admin, WordPress/Yoast-style)
+// ---------------------------------------------------------------------------
+
+/// Singleton row (id always 1) — global SEO defaults + marketing tracking IDs.
+model SeoSettings {
+  id                     Int    @id @default(1)
+  siteUrl                String @default("") @db.VarChar(255)
+  titleTemplate          String @default("%s · Beauty Palast") @db.VarChar(255)
+  defaultTitle           String @default("") @db.VarChar(255)
+  defaultDescription     String @default("") @db.VarChar(500)
+  ogImageUrl             String @default("") @db.VarChar(255)
+  gaMeasurementId        String @default("") @db.VarChar(50)
+  gtmContainerId         String @default("") @db.VarChar(50)
+  metaPixelId            String @default("") @db.VarChar(50)
+  googleSiteVerification String @default("") @db.VarChar(255)
+}
+
+/// Per-page meta title/description overrides, keyed by route path
+/// ("home", "leistungen", "ueber-andrea").
+model PageSeo {
+  path        String @id @db.VarChar(64)
+  title       String @default("") @db.VarChar(255)
+  description String @default("") @db.VarChar(500)
+}
+
+// ---------------------------------------------------------------------------
+// LEGAL PAGES ("Impressum" / "Datenschutzerklärung")
+// ---------------------------------------------------------------------------
+
+/// One legal page, keyed by its route slug ("impressum", "datenschutz").
+/// Header, optional table of contents and an optional closing call-to-action;
+/// the body itself lives in the LegalSection rows below.
+model LegalPage {
+  slug     String  @id @db.VarChar(32)
+  eyebrow  String  @default("") @db.VarChar(255)
+  title    String  @default("") @db.VarChar(255)
+  /// Italic accent appended to the title. Joined with a space unless `title`
+  /// ends in "-" (so "Datenschutz-" + "erklärung" stays one word).
+  titleEm  String  @default("") @db.VarChar(255)
+  intro    String  @db.Text
+  stand    String  @default("") @db.VarChar(255)
+  showToc  Boolean @default(true)
+  tocTitle String  @default("Inhalt") @db.VarChar(100)
+  ctaTitle String  @default("") @db.VarChar(255)
+  /// Rich text (see RichText.tsx). Empty hides the whole CTA block.
+  ctaText  String  @db.Text
+  ctaLabel String  @default("") @db.VarChar(100)
+
+  sections LegalSection[]
+}
+
+/// A numbered block of a legal page. `body` is the light rich-text format
+/// (paragraphs, "- " lists, "> " small notes, **bold**, *italic*, [link](url)),
+/// `rows` render as a label/value table or as small cards below it.
+model LegalSection {
+  id       Int       @id @default(autoincrement())
+  pageSlug String    @db.VarChar(32)
+  page     LegalPage @relation(fields: [pageSlug], references: [slug], onDelete: Cascade)
+
+  num       String @default("") @db.VarChar(16)
+  title     String @default("") @db.VarChar(255)
+  /// Small grey addition after the title, e.g. "(Art. 19 DSG)".
+  titleNote String @default("") @db.VarChar(255)
+  body      String @db.Text
+
+  /// "default" · "card" (rows inside a bordered card) · "note" (highlight box).
+  variant String @default("default") @db.VarChar(16)
+  /// How `rows` are rendered: "table" (label/value grid) or "cards".
+  rowStyle String @default("table") @db.VarChar(16)
+
+  /// Card variant only — the square initials badge and its heading.
+  cardBadge    String @default("") @db.VarChar(8)
+  cardTitle    String @default("") @db.VarChar(255)
+  cardSubtitle String @default("") @db.VarChar(255)
+
+  position Int        @default(0)
+  rows     LegalRow[]
+
+  @@index([pageSlug, position])
+}
+
+/// A single label/value pair inside a LegalSection.
+model LegalRow {
+  id        Int          @id @default(autoincrement())
+  sectionId Int
+  section   LegalSection @relation(fields: [sectionId], references: [id], onDelete: Cascade)
+  label     String       @default("") @db.VarChar(255)
+  value     String       @db.Text
+  position  Int          @default(0)
+
+  @@index([sectionId, position])
+}

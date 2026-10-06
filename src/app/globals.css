@@ -1,0 +1,97 @@
+@import "tailwindcss";
+
+:root {
+  /*
+   * Beauty Palast brand palette — see docs/BRAND_MANUAL.md
+   * The four OFFICIAL colors from the brand PDF:
+   *   Elfenbein     #F1E3D3  → main light background
+   *   Warmes Beige  #DDD4C7  → secondary background / cards
+   *   Taupe Braun   #BDA08A  → accents, stars, hovers, decoration
+   *   Dunkelbraun   #58463D  → primary text, dark buttons, footer/contact
+   * All other tokens below are derived shades of these (warm, never gray/blue).
+   */
+  --color-cream: #f1e3d3; /* Elfenbein (official) */
+  --color-cream-soft: #f9f0e5; /* derived: lighter Elfenbein — section backgrounds */
+  --color-cream-dark: #ddd4c7; /* Warmes Beige (official) */
+  --color-cream-deep: #d3c4b1; /* derived: borders/dividers on beige */
+  --color-sand: #bda08a; /* Taupe Braun (official) */
+  --color-sand-dark: #a68b74; /* derived: darker taupe for gradients */
+  --color-brown: #6c5849; /* derived: hover state for dark buttons */
+  --color-dark: #58463d; /* Dunkelbraun (official) — footer, contact, buttons */
+  --color-text: #58463d; /* Dunkelbraun (official) — primary text */
+  --color-text-mid: #6f5d4f; /* derived: secondary text */
+  --color-text-light: #8f7b69; /* derived: labels/eyebrows */
+  --color-white: #ffffff; /* pure white — brand direction moved off the warm #fdfaf5 */
+  --color-accent: #8b6b4a; /* darkened taupe for italic <em> accents (readable) */
+
+  --background: var(--color-cream);
+  --foreground: var(--color-text);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+
+  --color-brand-cream: var(--color-cream);
+  --color-brand-cream-soft: var(--color-cream-soft);
+  --color-brand-cream-dark: var(--color-cream-dark);
+  --color-brand-cream-deep: var(--color-cream-deep);
+  --color-brand-sand: var(--color-sand);
+  --color-brand-sand-dark: var(--color-sand-dark);
+  --color-brand-brown: var(--color-brown);
+  --color-brand-dark: var(--color-dark);
+  --color-brand-text: var(--color-text);
+  --color-brand-text-mid: var(--color-text-mid);
+  --color-brand-text-light: var(--color-text-light);
+  --color-brand-white: var(--color-white);
+  --color-brand-accent: var(--color-accent);
+
+  --font-heading: var(--font-figtree);
+  --font-sans: var(--font-figtree);
+  --font-serif-accent: var(--font-source-serif);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-figtree), sans-serif;
+  font-weight: 400;
+  line-height: 1.7;
+}
+
+h1,
+h2,
+h3,
+.font-heading {
+  font-family: var(--font-figtree), sans-serif;
+  font-weight: 300;
+  letter-spacing: -0.01em;
+}
+
+/* "Palabras clave" — keyword accents rendered in Source Serif 4 Light Italic */
+.font-accent-italic {
+  font-family: var(--font-serif-accent), serif;
+  font-style: italic;
+  font-weight: 300;
+}
+
+/* Motion: visitors who ask for less motion get the final state immediately.
+   `!important` beats the inline styles Motion writes on [data-reveal] wrappers.
+   Scoped to our own wrappers so the admin's animate-spin keeps spinning. */
+@media (prefers-reduced-motion: reduce) {
+  [data-reveal] {
+    opacity: 1 !important;
+    transform: none !important;
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+/* Hide scrollbar on the in-page section chip rail while keeping it scrollable */
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}

@@ -1,0 +1,16 @@
+node_modules
+.next
+.git
+*.log
+npm-debug.log*
+
+.env
+.env.*
+!.env.example
+
+docs
+pending.md
+README.md
+
+docker/mysql_data
+docker/uploads/*
